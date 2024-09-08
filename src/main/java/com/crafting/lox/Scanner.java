@@ -41,12 +41,10 @@ public class Scanner {
     }
 
     private boolean isAtEnd() {
-        System.out.println("Is at end!" + (current >= source.length()));
         return current >= source.length();
     }
 
     public List<Token> scanTokens() {
-        System.out.println("Sanning tokens now: " + source);
         while(!isAtEnd()) {
             start = current;
             scanToken();
@@ -136,7 +134,7 @@ public class Scanner {
     }
 
     private void string() {
-        while (peek() != '"' || !isAtEnd()) {
+        while (peek() != '"' && !isAtEnd()) {
             if (peek() == '\n') {
                 line++;
             }

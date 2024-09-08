@@ -10,6 +10,9 @@ import java.util.List;
 
 public class Lox {
     static boolean hadError = false;
+
+    // TODO: Add arrays, maps, i/o, file handling, constants, array prototypes, module/import support, add short hand variable++ or variable--
+
     public static void main(String[] args) throws IOException {
         if (args.length > 1) {
             System.out.println("Usage: jlox [script]");
@@ -22,7 +25,6 @@ public class Lox {
     }
 
     private static void runFile(String path) throws IOException {
-        System.out.println("Running");
         byte[] bytes = Files.readAllBytes(Paths.get(path));
         run(new String(bytes, Charset.defaultCharset()));
         if(hadError) System.exit(65);
